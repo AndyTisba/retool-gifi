@@ -33,6 +33,12 @@ import {
   CategoryList,
   CategoryShow,
 } from "./pages/categories";
+import {
+  ProductCreate,
+  ProductEdit,
+  ProductList,
+  ProductShow,
+} from "./pages/products";
 import { ForgotPassword } from "./pages/forgot-password";
 import { Login } from "./pages/login";
 import { Register } from "./pages/register";
@@ -57,6 +63,17 @@ function App() {
               routerProvider={routerProvider}
               authProvider={authProvider}
               resources={[
+                {
+                  name: "products",
+                  list: "/products",
+                  create: "/products/create",
+                  edit: "/products/edit/:id",
+                  show: "/products/show/:id",
+                  meta: {
+                    canDelete: true,
+                    icon: "🛒",
+                  },
+                },
                 {
                   name: "blog_posts",
                   list: "/blog-posts",
@@ -100,8 +117,14 @@ function App() {
                 >
                   <Route
                     index
-                    element={<NavigateToResource resource="blog_posts" />}
+                    element={<NavigateToResource resource="products" />}
                   />
+                  <Route path="/products">
+                    <Route index element={<ProductList />} />
+                    <Route path="create" element={<ProductCreate />} />
+                    <Route path="edit/:id" element={<ProductEdit />} />
+                    <Route path="show/:id" element={<ProductShow />} />
+                  </Route>
                   <Route path="/blog-posts">
                     <Route index element={<BlogPostList />} />
                     <Route path="create" element={<BlogPostCreate />} />
