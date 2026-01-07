@@ -12,7 +12,7 @@ import { CATEGORIES_LIST_QUERY } from "./queries";
 
 type Category = {
   id: string;
-  title: string;
+  name: string;
 };
 
 export const CategoryList = () => {
@@ -25,9 +25,9 @@ export const CategoryList = () => {
         header: "ID",
         enableSorting: false,
       }),
-      columnHelper.accessor("title", {
-        id: "title",
-        header: "Title",
+      columnHelper.accessor("name", {
+        id: "name",
+        header: "Name",
         enableSorting: true,
       }),
       columnHelper.display({

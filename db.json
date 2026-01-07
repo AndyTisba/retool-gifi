@@ -111,5 +111,40 @@
       "name": "Jardin",
       "value": "garden"
     }
+  ],
+  "blog_posts": [
+    {
+      "id": "1",
+      "title": "Guide d'achat : Aspirateurs sans fil",
+      "content": "Découvrez notre sélection d'aspirateurs sans fil pour faciliter votre ménage quotidien. Les aspirateurs sans fil offrent une liberté de mouvement incomparable...",
+      "status": "published",
+      "category": {
+        "id": "1",
+        "title": "Électroménager"
+      },
+      "createdAt": "2024-12-01T10:00:00.000Z"
+    },
+    {
+      "id": "2", 
+      "title": "Alimentation bio : pourquoi choisir ?",
+      "content": "L'alimentation biologique présente de nombreux avantages pour votre santé et l'environnement. Dans cet article, nous explorons les raisons de privilégier les produits bio...",
+      "status": "published",
+      "category": {
+        "id": "2", 
+        "title": "Alimentation"
+      },
+      "createdAt": "2024-11-15T14:30:00.000Z"
+    },
+    {
+      "id": "3",
+      "title": "Tendances déco 2025",
+      "content": "Découvrez les dernières tendances en décoration d'intérieur pour cette année. Du minimalisme scandinave aux couleurs audacieuses...",
+      "status": "draft",
+      "category": {
+        "id": "4",
+        "title": "Maison & Décoration"
+      },
+      "createdAt": "2024-12-20T09:15:00.000Z"
+    }
   ]
 }

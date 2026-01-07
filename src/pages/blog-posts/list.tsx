@@ -10,8 +10,6 @@ import { DataTable } from "@/components/refine-ui/data-table/data-table";
 import { ListView } from "@/components/refine-ui/views/list-view";
 import { Badge } from "@/components/ui/badge";
 
-import { POSTS_LIST_QUERY } from "./queries";
-
 type BlogPost = {
   id: string;
   title: string;
@@ -33,6 +31,8 @@ export const BlogPostList = () => {
       pageSize: 999,
     },
   });
+
+  console.log({ categories });
 
   const columns = React.useMemo(() => {
     const columnHelper = createColumnHelper<BlogPost>();
@@ -112,9 +112,7 @@ export const BlogPostList = () => {
     columns,
     refineCoreProps: {
       syncWithLocation: true,
-      meta: {
-        gqlQuery: POSTS_LIST_QUERY,
-      },
+      resource: "blog_posts",
     },
   });
 

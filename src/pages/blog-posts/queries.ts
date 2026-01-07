@@ -65,7 +65,7 @@ export const POST_SHOW_QUERY = gql`
       categoryId
       category {
         id
-        title
+        name
       }
       content
       createdAt

@@ -23,15 +23,15 @@ export const CategoryShow = () => {
     <ShowView>
       <Card>
         <CardHeader>
-          <CardTitle>{record?.title}</CardTitle>
+          <CardTitle>{record?.name}</CardTitle>
           <CardDescription>Category ID: {record?.id}</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
             <div>
-              <h4 className="text-sm font-medium mb-2">Title</h4>
+              <h4 className="text-sm font-medium mb-2">Name</h4>
               <p className="text-sm text-muted-foreground">
-                {record?.title || "-"}
+                {record?.name || "-"}
               </p>
             </div>
           </div>

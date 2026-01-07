@@ -20,6 +20,8 @@ export const BlogPostShow = () => {
     },
   });
 
+  console.log(record);
+
   const { isLoading } = query;
 
   return (
@@ -27,7 +29,7 @@ export const BlogPostShow = () => {
       <div className="space-y-6">
         <Card>
           <CardHeader>
-            <CardTitle>{record?.title}</CardTitle>
+            <CardTitle>{record?.name}</CardTitle>
             <CardDescription>
               <div className="flex items-center gap-4">
                 <Badge
@@ -47,7 +49,7 @@ export const BlogPostShow = () => {
             <div>
               <h4 className="text-sm font-medium mb-2">Category</h4>
               <p className="text-sm text-muted-foreground">
-                {record?.category?.title || "-"}
+                {record?.category?.name || "-"}
               </p>
             </div>
 

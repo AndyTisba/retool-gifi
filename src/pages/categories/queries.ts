@@ -27,7 +27,7 @@ export const CATEGORIES_LIST_QUERY = gql`
     categories(paging: $paging, filter: $filter, sorting: $sorting) {
       nodes {
         id
-        title
+        name
         createdAt
       }
       totalCount
