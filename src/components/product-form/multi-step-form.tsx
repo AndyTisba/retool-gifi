@@ -151,11 +151,10 @@ export function ProductMultiStepForm({ mode }: ProductFormProps) {
   };
 
   const nextStep = async () => {
-    // Forcer la validation des champs actuels
-    const isValid = await form.trigger();
-    console.log(form.formState.errors);
+    // Valider uniquement l'étape courante
+    const isCurrentStepValid = await validateStep(currentStep);
 
-    if (isValid && (await validateStep(currentStep))) {
+    if (isCurrentStepValid) {
       setCurrentStep((prev) => Math.min(prev + 1, steps.length));
     }
   };
