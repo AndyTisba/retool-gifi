@@ -2,17 +2,13 @@ import { Authenticated, GitHubBanner, Refine } from "@refinedev/core";
 import { DevtoolsPanel, DevtoolsProvider } from "@refinedev/devtools";
 import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
 
-import dataProvider, {
-  GraphQLClient,
-  liveProvider,
-} from "@refinedev/nestjs-query";
+import dataProvider from "@refinedev/simple-rest";
 import routerProvider, {
   CatchAllNavigate,
   DocumentTitleHandler,
   NavigateToResource,
   UnsavedChangesNotifier,
 } from "@refinedev/react-router";
-import { createClient } from "graphql-ws";
 import { BrowserRouter, Outlet, Route, Routes } from "react-router";
 import "./App.css";
 import { authProvider } from "./authProvider";
@@ -43,11 +39,7 @@ import { ForgotPassword } from "./pages/forgot-password";
 import { Login } from "./pages/login";
 import { Register } from "./pages/register";
 
-const API_URL = "https://api.nestjs-query.refine.dev/graphql";
-const WS_URL = "wss://api.nestjs-query.refine.dev/graphql";
-
-const gqlClient = new GraphQLClient(API_URL);
-const wsClient = createClient({ url: WS_URL });
+const API_URL = "http://localhost:3001";
 
 function App() {
   return (
@@ -57,8 +49,7 @@ function App() {
         <ThemeProvider>
           <DevtoolsProvider>
             <Refine
-              dataProvider={dataProvider(gqlClient)}
-              liveProvider={liveProvider(wsClient)}
+              dataProvider={dataProvider(API_URL)}
               notificationProvider={useNotificationProvider()}
               routerProvider={routerProvider}
               authProvider={authProvider}

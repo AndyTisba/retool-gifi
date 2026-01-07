@@ -1,0 +1,115 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Aspirateur sans fil Dyson V15",
+      "category": "electronics",
+      "brand": "Dyson",
+      "barcode": "",
+      "description": "Aspirateur sans fil haute performance avec détection laser de la poussière",
+      "sku": "GIFI-ASP-001",
+      "weight": 3.5,
+      "dimensions": {
+        "length": 120,
+        "width": 25,
+        "height": 15
+      },
+      "unit": "piece",
+      "color": "Violet",
+      "size": "",
+      "price": 599.99,
+      "cost": 400,
+      "currency": "EUR",
+      "stockQuantity": 15,
+      "minStockLevel": 5,
+      "maxStockLevel": 50,
+      "status": "active",
+      "isPerishable": false,
+      "expiryDate": null,
+      "storageCondition": null,
+      "isFragile": true,
+      "requiresAgeVerification": false,
+      "minimumAge": null,
+      "tags": [
+        "électroménager",
+        "sans fil",
+        "haute performance"
+      ],
+      "supplier": "Dyson France",
+      "manufacturingDate": "2024-01-15T00:00:00.000Z",
+      "warrantyPeriod": 24,
+      "images": [],
+      "createdAt": "2024-01-01T10:00:00.000Z",
+      "updatedAt": "2024-01-01T10:00:00.000Z"
+    },
+    {
+      "id": "2",
+      "name": "Lait entier Bio 1L",
+      "category": "food",
+      "brand": "Bio Village",
+      "barcode": "3245567890123",
+      "description": "Lait entier biologique de vaches nourries à l'herbe",
+      "sku": "GIFI-LAIT-001",
+      "weight": 1,
+      "dimensions": {
+        "length": 8,
+        "width": 6,
+        "height": 20
+      },
+      "unit": "bottle",
+      "color": "",
+      "size": "1L",
+      "price": 2.49,
+      "cost": 1.8,
+      "currency": "EUR",
+      "stockQuantity": 3,
+      "minStockLevel": 10,
+      "maxStockLevel": 100,
+      "status": "active",
+      "isPerishable": true,
+      "expiryDate": "2025-12-25T00:00:00.000Z",
+      "storageCondition": "refrigerated",
+      "isFragile": false,
+      "requiresAgeVerification": false,
+      "minimumAge": null,
+      "tags": [
+        "bio",
+        "laitier",
+        "frais"
+      ],
+      "supplier": "Bio Village SARL",
+      "manufacturingDate": "2024-12-01T00:00:00.000Z",
+      "warrantyPeriod": null,
+      "images": [],
+      "createdAt": "2024-01-01T10:00:00.000Z",
+      "updatedAt": "2024-01-01T10:00:00.000Z"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Électronique",
+      "value": "electronics"
+    },
+    {
+      "id": "2",
+      "name": "Alimentation",
+      "value": "food"
+    },
+    {
+      "id": "3",
+      "name": "Vêtements",
+      "value": "clothing"
+    },
+    {
+      "id": "4",
+      "name": "Maison",
+      "value": "household"
+    },
+    {
+      "id": "5",
+      "name": "Jardin",
+      "value": "garden"
+    }
+  ]
+}

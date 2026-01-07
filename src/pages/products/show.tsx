@@ -46,22 +46,26 @@ const statusColors = {
 
 export function ProductShow() {
   const { id } = useParams();
+
   const navigate = useNavigate();
 
-  const { data, isLoading, error } = useOne<ProductFormData>({
+  const {
+    result: data,
+    query: { isLoading, error },
+  } = useOne<ProductFormData>({
     resource: "products",
-    id: id as string,
+    id: String(id) as string,
   });
 
   if (isLoading) {
     return <div>Chargement...</div>;
   }
 
-  if (error || !data?.data) {
+  if (error || !data) {
     return <div>Produit non trouvé</div>;
   }
 
-  const product = data.data;
+  const product = data;
   const margin =
     product.price && product.cost
       ? (((product.price - product.cost) / product.price) * 100).toFixed(2)

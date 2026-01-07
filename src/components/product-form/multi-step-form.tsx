@@ -27,13 +27,7 @@ import { ProductStep2 } from "./step2";
 import { ProductStep3 } from "./step3";
 import { ProductStep4 } from "./step4";
 import { toast } from "sonner";
-import {
-  ChevronLeft,
-  ChevronRight,
-  Save,
-  Check,
-  AlertTriangle,
-} from "lucide-react";
+import { ChevronLeft, ChevronRight, Save, Check } from "lucide-react";
 
 interface ProductFormProps {
   mode: "create" | "edit";

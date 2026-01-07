@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { useNavigation, useDelete } from "@refinedev/core";
-import { ProductFormData } from "@/schemas/product";
+import { useNavigation, useDelete, useList } from "@refinedev/core";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -66,61 +65,16 @@ export function ProductList() {
   const { create, edit, show } = useNavigation();
   const { mutate: deleteProduct } = useDelete();
 
-  // Données d'exemple pour la démonstration
-  const products: (ProductFormData & { id: string })[] = [
-    {
-      id: "1",
-      name: "Aspirateur sans fil Dyson V15",
-      category: "electronics",
-      brand: "Dyson",
-      sku: "GIFI-ASP-001",
-      price: 599.99,
-      cost: 400.0,
-      currency: "EUR",
-      stockQuantity: 15,
-      minStockLevel: 5,
-      maxStockLevel: 50,
-      status: "active",
-      description:
-        "Aspirateur sans fil haute performance avec détection laser de la poussière",
-      unit: "piece",
-      isPerishable: false,
-      isFragile: true,
-      requiresAgeVerification: false,
-      tags: ["électroménager", "sans fil", "haute performance"],
-      images: [],
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-    {
-      id: "2",
-      name: "Lait entier Bio 1L",
-      category: "food",
-      brand: "Bio Village",
-      sku: "GIFI-LAIT-001",
-      price: 2.49,
-      cost: 1.8,
-      currency: "EUR",
-      stockQuantity: 3,
-      minStockLevel: 10,
-      maxStockLevel: 100,
-      status: "active",
-      description: "Lait entier biologique de vaches nourries à l'herbe",
-      unit: "bottle",
-      isPerishable: true,
-      expiryDate: new Date(2025, 11, 25),
-      storageCondition: "refrigerated",
-      isFragile: false,
-      requiresAgeVerification: false,
-      tags: ["bio", "laitier", "frais"],
-      images: [],
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-  ];
+  // Récupération des données depuis l'API locale
+  const {
+    result: { data: productData },
+    query: { isLoading },
+  } = useList({
+    resource: "products",
+  });
 
   // Filtrage simple
-  const filteredProducts = products.filter(
+  const filteredProducts = productData.filter(
     (product) =>
       product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       product.sku.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -128,12 +82,14 @@ export function ProductList() {
   );
 
   // Statistiques
-  const totalProducts = products.length;
-  const activeProducts = products.filter((p) => p.status === "active").length;
-  const lowStockProducts = products.filter(
+  const totalProducts = productData.length;
+  const activeProducts = productData.filter(
+    (p) => p.status === "active"
+  ).length;
+  const lowStockProducts = productData.filter(
     (p) => p.stockQuantity <= p.minStockLevel
   ).length;
-  const totalValue = products.reduce(
+  const totalValue = productData.reduce(
     (acc, p) => acc + p.price * p.stockQuantity,
     0
   );
@@ -365,7 +321,9 @@ export function ProductList() {
                 ) : (
                   <TableRow>
                     <TableCell colSpan={7} className="h-24 text-center">
-                      {searchQuery
+                      {isLoading
+                        ? "Chargement des produits..."
+                        : searchQuery
                         ? "Aucun produit trouvé."
                         : "Aucun produit dans l'inventaire."}
                     </TableCell>
