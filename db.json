@@ -30,11 +30,7 @@
       "isFragile": true,
       "requiresAgeVerification": false,
       "minimumAge": null,
-      "tags": [
-        "électroménager",
-        "sans fil",
-        "haute performance"
-      ],
+      "tags": ["électroménager", "sans fil", "haute performance"],
       "supplier": "Dyson France",
       "manufacturingDate": "2024-01-15T00:00:00.000Z",
       "warrantyPeriod": 24,
@@ -72,11 +68,7 @@
       "isFragile": false,
       "requiresAgeVerification": false,
       "minimumAge": null,
-      "tags": [
-        "bio",
-        "laitier",
-        "frais"
-      ],
+      "tags": ["bio", "laitier", "frais"],
       "supplier": "Bio Village SARL",
       "manufacturingDate": "2024-12-01T00:00:00.000Z",
       "warrantyPeriod": null,
@@ -125,12 +117,12 @@
       "createdAt": "2024-12-01T10:00:00.000Z"
     },
     {
-      "id": "2", 
+      "id": "2",
       "title": "Alimentation bio : pourquoi choisir ?",
       "content": "L'alimentation biologique présente de nombreux avantages pour votre santé et l'environnement. Dans cet article, nous explorons les raisons de privilégier les produits bio...",
       "status": "published",
       "category": {
-        "id": "2", 
+        "id": "2",
         "title": "Alimentation"
       },
       "createdAt": "2024-11-15T14:30:00.000Z"

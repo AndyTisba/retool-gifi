@@ -78,7 +78,7 @@ export const CATEGORIES_SELECT_QUERY = gql`
     categories(filter: $filter) {
       nodes {
         id
-        title
+        name
       }
     }
   }

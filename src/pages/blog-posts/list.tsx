@@ -16,7 +16,7 @@ type BlogPost = {
   content: string;
   status: string;
   createdAt: string;
-  category: { id: string; title: string };
+  category: { id: string; name: string };
 };
 
 export const BlogPostList = () => {
@@ -32,7 +32,7 @@ export const BlogPostList = () => {
     },
   });
 
-  console.log({ categories });
+  console.log(categories);
 
   const columns = React.useMemo(() => {
     const columnHelper = createColumnHelper<BlogPost>();
@@ -60,14 +60,14 @@ export const BlogPostList = () => {
           );
         },
       }),
-      columnHelper.accessor("category.title", {
+      columnHelper.accessor("category.name", {
         id: "category",
         header: "Category",
         enableSorting: false,
         cell: ({ row }) => {
           const categoryId = row.original.category?.id;
           const category = categories?.find((item) => item.id === categoryId);
-          return categoryIsLoading ? "Loading..." : category?.title || "-";
+          return categoryIsLoading ? "Loading..." : category?.name || "-";
         },
       }),
       columnHelper.accessor("status", {
